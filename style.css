@@ -1,4 +1,340 @@
+/* General Body and Container Styles */
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e; /* Deep purple-blue */
+    color: #e0e0e0; /* Light off-white text */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%; /* Ensure it uses available width */
+    margin: 20px auto;
+    background-color: #16213e; /* Slightly lighter deep purple-blue for container */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Stronger, darker shadow */
+    border: 1px solid #0f3460; /* Subtle border */
+}
+
+/* Headings */
+h1 {
+    color: #e94560; /* Vibrant pink-red accent */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: #a0a0a0; /* Softer gray for section titles */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #0f3460; /* Underline effect */
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+/* Sections Backgrounds */
+.add-anime-section, .controls, .watching-section, .completed-section {
+    background-color: #0f3460; /* Medium dark blue */
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    border: 1px solid #1a1a2e; /* Inner border */
+}
+
+/* Form Styling */
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Better spacing */
+    gap: 20px; /* Increased gap */
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="url"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 14px; /* Larger padding */
+    border: 1px solid #28547C; /* Slightly lighter border for inputs */
+    border-radius: 7px; /* Slightly more rounded */
+    background-color: #1a1a2e; /* Darker background for inputs */
+    color: #e0e0e0;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="url"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    border-color: #e94560; /* Highlight on focus */
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
+    outline: none;
+}
+
+form input[type="text"]::placeholder,
+form input[type="number"]::placeholder,
+form input[type="url"]::placeholder {
+    color: #99aab5;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px; /* Spacing for labels */
+    color: #e0e0e0;
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+form button {
+    grid-column: 1 / -1;
+    background-color: #e94560;
+    color: white;
+    padding: 15px 25px; /* Larger button */
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+form button:hover {
+    background-color: #ff6a81;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Controls (Search and Sort) */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Increased gap */
+    justify-content: center;
+    align-items: center;
+}
+
+.controls input[type="text"],
+.controls select {
+    flex: 1;
+    min-width: 250px; /* Slightly wider */
+    padding: 14px;
+    border: 1px solid #28547C;
+    border-radius: 7px;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.controls input[type="text"]::placeholder {
+    color: #99aab5;
+}
+
+/* Anime Sections Layout */
+.anime-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .anime-sections {
+        grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+    }
+}
+
+.anime-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger cards */
+    gap: 25px; /* Increased gap between cards */
+    margin-top: 20px;
+}
+
+/* Anime Card Styling */
+.anime-card {
+    background-color: #1a1a2e;
+    padding: 20px; /* More padding inside card */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Stronger card shadow */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid #28547C; /* Subtle card border */
+}
+
+.anime-card:hover {
+    transform: translateY(-7px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    border-color: #e94560; /* Highlight border on hover */
+}
+
+.anime-card img {
+    width: 100%; /* Ensure image fills card width */
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    border-radius: 8px; /* More rounded image corners */
+    margin-bottom: 15px;
+    display: block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.anime-card h3 {
+    color: #e94560;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.6em; /* Larger title */
+    line-height: 1.3;
+}
+
+.anime-card p {
+    margin: 6px 0; /* Slightly more vertical spacing */
+    font-size: 0.98em;
+    color: #c0c0c0;
+}
+
+.anime-card p strong {
+    color: #e0e0e0;
+}
+
+.anime-card .genre {
+    font-style: italic;
+    font-size: 0.88em; /* Slightly larger genre text */
+    color: #a0a0a0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.anime-card .link-button {
+    display: inline-block;
+    background-color: #6a2c70; /* Purple accent for link */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 12px;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.anime-card .link-button:hover {
+    background-color: #8c3b94;
+    transform: translateY(-1px);
+}
+
+.anime-card .actions {
+    display: flex;
+    gap: 12px; /* Increased gap between action buttons */
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.anime-card .actions button {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.anime-card .actions button.edit {
+    background-color: #4CAF50; /* Green for edit */
+}
+
+.anime-card .actions button.edit:hover {
+    background-color: #6cb36e;
+    transform: translateY(-1px);
+}
+
+.anime-card .actions button.delete {
+    background-color: #f44336; /* Red for delete */
+}
+
+.anime-card .actions button.delete:hover {
+    background-color: #ff6f61;
+    transform: translateY(-1px);
+}
+
+/* Empty list message */
+.empty-list-message {
+    text-align: center;
+    color: #a0a0a0;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed #28547C;
+    border-radius: 8px;
+    background-color: #1a1a2e;
+    font-size: 1.1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .add-anime-section, .controls, .watching-section, .completed-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .controls input, .controls select {
+        width: 100%;
+        min-width: unset; /* Remove min-width constraint */
+    }
+    .anime-list {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+        gap: 15px;
+    }
+    .anime-card {
+        padding: 15px;
+    }
+    .anime-card img {
+        height: 180px;
+    }
+    .anime-card h3 {
+        font-size: 1.4em;
+    }
+    .anime-card .actions {
+        justify-content: space-around; /* Spread out buttons */
+    }
+}body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #1a1a2e; /* Dark background */
     color: #e0e0e0; /* Light text */
