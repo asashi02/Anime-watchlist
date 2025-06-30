@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Anime Watchlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Anime Watchlist & Completed List</h1>
+
+        <div class="add-anime-section">
+            <h2>Add New Anime</h2>
+            <form id="anime-form">
+                <input type="text" id="anime-title" placeholder="Anime Title" required>
+                <select id="anime-status" required>
+                    <option value="">Select Status</option>
+                    <option value="Watching">Watching</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Plan to Watch">Plan to Watch</option>
+                    <option value="Dropped">Dropped</option>
+                    <option value="On Hold">On Hold</option>
+                </select>
+                <input type="number" id="anime-episodes" placeholder="Total Episodes" min="1" required>
+                <input type="number" id="anime-rating" placeholder="Your Rating (1-10)" min="1" max="10">
+                <input type="text" id="anime-genre" placeholder="Genre (e.g., Action, Fantasy)">
+                <input type="url" id="anime-link" placeholder="Streaming Service Link (URL)">
+                <label for="anime-start-date">Start Date:</label>
+                <input type="date" id="anime-start-date">
+                <label for="anime-end-date">End Date (if completed):</label>
+                <input type="date" id="anime-end-date">
+                <input type="url" id="anime-image" placeholder="Image URL (Optional)">
+                <button type="submit">Add Anime</button>
+            </form>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Search anime by title...">
+            <select id="sort-by">
+                <option value="title-asc">Sort by Title (A-Z)</option>
+                <option value="title-desc">Sort by Title (Z-A)</option>
+                <option value="rating-desc">Sort by Rating (High to Low)</option>
+                <option value="rating-asc">Sort by Rating (Low to High)</option>
+                <option value="start-date-desc">Sort by Start Date (Newest First)</option>
+                <option value="start-date-asc">Sort by Start Date (Oldest First)</option>
+            </select>
+        </div>
+
+        <div class="anime-sections">
+            <div class="watching-section">
+                <h2>Watching</h2>
+                <div id="watching-list" class="anime-list">
+                    </div>
+            </div>
+
+            <div class="completed-section">
+                <h2>Completed</h2>
+                <div id="completed-list" class="anime-list">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
